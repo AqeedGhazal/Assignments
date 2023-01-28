@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja Gold</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="header">
+        <table>
+            <tbody>
+                <tr>
+                    <td>Your Gold:</td>
+                    <td class="gold">{{ request.session.gold }}</td>
+                </tr>
+                <tr>
+                    <td>Moves:</td>
+                    <td class="gold">{{request.session.count}}</td>
+                </tr>
+                <tr>
+                    <form action="/reset" method="post">
+                    {% csrf_token %}
+                    <td> </td>
+                    <td><button class="">Start Over</button></td>
+                    </form>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="forms">
+        <div class="farm">
+            <h2> Farm </h2>
+            <p> (earns 10-20 golds) </p>
+            <form action = "/gold/farm" method = "POST">
+                {% csrf_token %}
+                <button name="farm"> Find Gold! </button>
+            </form>
+        </div>
+        <div class="cave">
+            <h2> Cave </h2>
+            <p> (earns 5-10 golds) </p>
+            <form action = "/gold/cave" method = "POST">
+                {% csrf_token %}
+                <button name="cave"> Find Gold! </button>
+            </form>
+        </div>
+        <div class="house">
+            <h2> House </h2>
+            <p> (earns 2-5 golds) </p>
+            <form action = "/gold/house" method = "POST">
+                {% csrf_token %}
+                <button name="house"> Find Gold! </button>
+            </form>
+        </div>
+        <div class="casino">
+            <h2> Casino </h2>
+            <p> (earns/takes 0-50 golds) </p>
+            <form action = "/gold/casino" method = "POST">
+                {% csrf_token %}
+                <button name="casino"> Find Gold! </button>
+            </form>
+        </div>
+    </div>
+    <div id="activity">
+        <p> Activities: </p>
+        <div id="activity-box">
+            {% for str in request.session.str_history %}
+                {% for color in request.session.color_history %}
+                    {% if forloop.counter == forloop.parentloop.counter %}
+                <p style="color:{{color}}" > {{forloop.counter}}-{{str}} </p>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+
+        </div>
+    </div>
+</body>
+</html>

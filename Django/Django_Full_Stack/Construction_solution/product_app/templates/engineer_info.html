@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Contact Engineer</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/engineer_info.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <a href="/allproducts">Back to Products </a>
+                <a href="/logout">Logout</a>
+            </div>
+            <div class="user_info">
+                <h3><span class="label">Name:</span> {{ engineer.First_Name }} {{engineer.Last_Name}}</h3>
+                <h3><span class="label">Email :</span> <a href="">{{ engineer.email }}</a></h3>
+                <h3><span class="label">phoneNumber :</span>{{ engineer.phoneNumber }}</h3>
+                <h3><span class="label">Products added :</span> </h3>
+                {% for product in engineer_products %}
+                <ul>
+                    <li>{{ product.Title }}</li>
+                </ul>
+                {% endfor %}
+            </div>
+            <div class="reviews">
+                <h3>Engineer Reviews</h3>
+                {% if reviews %}
+                    {% for review in reviews %}
+                        <p><a href="/books/{{ review.book.id }}">{{ review.book.title }}</a></p>
+                        <form action="/users/{{review.user.id}}/delete" method="post"></form>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </body>
+</html>

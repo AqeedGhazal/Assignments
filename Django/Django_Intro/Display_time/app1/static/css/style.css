@@ -1,0 +1,28 @@
+.first_box{ 
+
+    margin: 0 auto ;
+    align-content: center;
+    align-items: center ;
+    border: 2px solid black;
+    text-align: center;
+    width:300px;
+    margin-bottom: 20px ;
+
+}
+
+.second_box{ 
+
+    margin: 0 auto ;
+    align-content: center;
+    align-items: center ;
+    border: 2px solid black;
+    text-align: center;
+    width: 600px ; 
+    
+}
+body{
+    background-color: lightblue;
+    font-family: 'Tangerine', serif;
+    font-size: 48px;
+    text-shadow: 4px 4px 4px #aaa;
+}

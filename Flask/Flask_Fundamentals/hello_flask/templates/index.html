@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='Stylesheet/MyStyle.css') }}">
+</head>
+<body>
+    <h1>Hello Flask!</h1>
+    <h3>My Flask Template</h3>
+    <p>We did it ! </p>
+    <p>Phrase: {{ phrase }}</p>
+    <p>Times: {{ times }}</p>
+    {% for x in range(1,times): %}
+        <p>{{x}}</p>
+    {% endfor %}
+    {% if phrase=="hello" %}
+        <p>the phrase says hello</p>
+    {% endif %}
+</body>
+</html>
+
+

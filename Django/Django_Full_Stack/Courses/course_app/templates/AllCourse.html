@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    {% load static%}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">   
+</head>
+<body class="">
+    <div class="container">
+        <h1 class="display-1">Add a new course</h1>
+        <form class="form-group" action="/addcourse" method="post">
+        {% csrf_token %}
+        <table >
+            <tbody>
+                <tr>
+                    <td class="">Name:</td>
+                    <td> <input class="form-control" type="text" name="name"></td>
+                </tr>
+                <tr>
+                    <td>Descreption:</td>
+                    <td><textarea class="form-control" name="descreption" id="" cols="30" rows="6"></textarea></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="text-right"><button  class="btn btn-success" type="submit">Add</td>
+                </tr>
+            </tbody>
+        </table>
+        </form>
+        {% if messages %}
+        <ul class="list-style">    
+        {% for message in messages %}    
+            <li class="" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+        {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+    <div class="container">
+        <h1>Courses</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col" >ID</th>
+                    <th scope="col">Course Name</th>
+                    <th scope="col">Descreption</th>
+                    <th scope="col">Date Aded</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in courses %}
+                <tr>
+                    <th scope="row">{{course.id}}</th>
+                    <td>{{course.Name}}</td>
+                    <td></td>
+                    <td>{{course.created_at}}</td>
+                    <td><a href="/courses/destroy/{{course.id}}">Remove</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='resultstyle.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Submitted info</h1>
+        <p>Name: <span>{{name_on_template}}</span></p>
+        <p>Dojo Location: <span>{{location_on_template}}</span></p>
+        <p>Favorit Language: <span>{{language_on_template}}</span></p>
+        <p>Comments: <span>{{comments_on_template}}</span></p>
+        <button>Go Back</button>
+    </div>
+</body>
+</html>

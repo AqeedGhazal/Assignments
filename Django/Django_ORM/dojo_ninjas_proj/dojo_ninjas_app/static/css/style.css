@@ -1,0 +1,16 @@
+.name , .state , .city , .btn { 
+
+    margin-left:  20px;
+}
+#select_dojo{
+    margin-left:  20px;
+}
+.part-1{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    width: 60%;
+}
+.part-2{
+margin-top: 30px ; 
+}

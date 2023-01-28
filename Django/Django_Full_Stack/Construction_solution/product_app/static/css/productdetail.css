@@ -1,0 +1,66 @@
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px black solid;
+}
+.nav-links{
+    display: flex;
+    list-style: none;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    }
+    a{
+        color: blue;
+        text-decoration: underline;
+        padding: 10px;
+    }
+
+.container{
+    display: flex;
+    justify-content: space-around;
+}
+.product_details{
+    width: 500px;
+    height: 300px;
+    border-bottom: 1px black solid;
+}
+.add_book form{
+    padding: 30px;
+}
+div label {
+    display: inline-block;
+    width: 200px;
+    vertical-align: top;
+}
+div {
+    margin: 20px 0px;
+}
+.red{
+    color: red;
+}
+.add_product {
+    padding: 0px 30px;
+}
+
+.altrnative_product{
+    margin: 50px;
+    padding: 30px;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 500x;
+}
+
+.review {
+    border-top: 1px black solid;
+
+
+}
+
+.add_review_part { 
+
+    border-top: 1px black solid;
+}
+
+

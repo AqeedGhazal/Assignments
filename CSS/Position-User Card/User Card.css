@@ -1,0 +1,40 @@
+body {
+}
+.container{
+    width: 800px;
+    margin: 0 auto;
+    
+}
+.card{
+    width: 800px;
+    border: 2px solid gray ;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+.header{
+    width: 800px;
+    background-color: rgb(23, 162, 184);
+    height: 125px;
+    margin-bottom: 60px;
+}
+.content{
+    padding: 20px;
+    height: 200px;
+}
+.user{
+    border-radius: 60%;
+    border: 6px solid white;
+    height: 170px;
+    padding: 5px;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+.icon{
+    height: 20px;
+}
+a{
+    color: blue;
+}
+.marker{
+    height: 20px;
+}

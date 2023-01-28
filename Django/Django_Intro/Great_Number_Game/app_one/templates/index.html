@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guess game </title>
+    <style>
+        .content{
+            margin: 0 auto;
+            text-align: center;
+        }
+        .hint-box {
+            width: 300px;
+            height: 300px;
+            border: 2px solid black ;
+            text-align: center;
+            justify-content: center;
+            margin: 0 auto;
+            align-items: center;
+            background-color: {{box_color}} ;
+        }
+
+    </style>
+</head>
+<body class="content ">
+    <h1>Welcome to the Great Number Game !</h1>
+    <p>I am thinking of a number between 1 and 100 </p>
+    <p>Try to guess it ! </p>
+    <div class="hint-box">
+        <h1>{{message}}</h1>
+        {% if input_value == random_guess%}
+        <a href="/"> <button type="submit">Play Again </button></a>
+        {% endif %}
+        <p>{{message2}}</p>
+        <p></p>
+        </h1>
+    </div>
+    <form action="check" method="post">
+        {% csrf_token %}
+        <p><input type="text" name="input_guess"></p>
+        <input type="Submit" value="Try ! ">
+    </form>
+    
+</body>
+</html>

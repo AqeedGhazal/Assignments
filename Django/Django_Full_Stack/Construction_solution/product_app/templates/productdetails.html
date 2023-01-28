@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Solution</title>
+</head>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/productdetail.css' %}">
+<body>
+    <div class="nav">
+        <h1>Welcome Eng {{engineer.First_Name}}</h1>
+        <div class="nav-links">
+            <a href="/logout">Logout</a>
+            <a href="/products">Add New Product</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="product_details">
+            {% if messages %}
+            <ul class="messages">    
+            {% for message in messages %}    
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+            {% endfor %}
+            </ul>
+            {% endif %}
+            <h2> Product:{{product.Title}}</h2>
+            <p><strong>Description :</strong>{{product.Description}}</p>
+            <p><strong>Uses:</strong>{{product.used_for}}</p>
+            <p><strong>Advantages :</strong> {{product.Advantages}}</p>
+            {% if company_products %}
+                {% for company in product_company %}
+            <p><strong>Manufacturer:</strong> {{company.Name}}</p>
+                {% endfor %}
+            {% endif %}
+            {% for productt in alt_product %}
+            <h2>Equivalent Product : {{productt.Title}} </h2>
+            <p><strong>Description :</strong>{{productt.Description}}</p>
+            <p><strong>Uses:</strong>{{productt.used_for}}</p>
+            <p><strong>Advantages :</strong> {{productt.Advantages}}</p>
+            <a class="delete" href="/showproduct/{{product.id}}/{{productt.id}}/delete">Delete</a>
+            {% endfor %}
+            <h2 class="exp">Customer experience of the product</h2>
+            {%for review in reviews %}
+            <p>=====================================</p>
+            <p>Rating :{{review.rating}} <span class="fa fa-star checked"></span></p>
+            <p>{{review.user.First_Name}} :{{review.review}}</p>
+            <p>Posted on {{ review.created_at }}</p>
+                {% if review.user.id == user.id %}
+                <a href="/showproductuser/{{product.id}}/{{review.id}}/delete">Delete</a>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="altrnative_product">
+        <h1>Add an Equivalent Product </h1>
+        <form action="/showproduct/{{product.id}}/addaltproduct" method="post">
+            {% csrf_token %}
+            <div class="title">
+                <label for="Title"> Product Title :</label>
+                <input type="text" name="alt-title" id="Title">
+            </div>
+            <div class="descreption">
+                <label for="desc">Descreption</label>
+                <textarea name="alt-desc" id="desc" cols="30" rows="10"></textarea>
+            </div>
+            <div class="used-for">
+                <label for="usedfor">Used for</label>
+                <textarea name="alt-usedfor" id="usedfor" cols="30" rows="10"></textarea>
+            </div>
+            <div class="advantages">
+                <label for="advantegs ">Advantages</label>
+                <textarea name="alt-advantages" id="advantages" cols="30" rows="10"></textarea>
+            </div>
+            <div class="submit">
+                <input type="submit" value="Add Equivalent Product">
+        </form>
+    </div>
+</body>
+</html>

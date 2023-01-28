@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'wallstyle.css' %}">  
+</head>
+<body>
+    <div class="container">
+        <div>
+            <nav class="navbar navbar-light bg-light justify-content-between">
+                <a class="navbar-brand">CodingDojo Wall</a>
+                <h3>Welcome {{ user.first_name }}</h3>
+                <a href="/logout" class="btn btn-outline-success my-2 my-sm-0" role="button">Logout</a>
+            </nav>
+        </div>
+        <div class="form-group">
+            <form action="/addmessage" , method="post">
+                {% csrf_token %}
+                <label class="form-label" for="textAreaExample5">What's in your mind,{{user.first_name}} </label>
+                <textarea name="new_message" class="form-control" id="textAreaExample5" rows="3"></textarea>
+                <input class="btn btn-primary btn-sm" type="submit" value="Post a message">
+            </form>
+        </div>
+        {% for msg in all_messages %}
+        <div class="container">
+            <div class="messages">
+                <h3>{{msg.User.first_name}} {{msg.User.last_name}} - {{msg.created_at}}</h3>
+                <p>{{msg.message}}</p>
+            </div>
+            <div class="comments">
+            {% for comment in msg.comments.all %}
+                <ul>{{ comment.User.first_name }} {{comment.User.last_name }} - {{comment.created_at}}
+                    {% if user.id == comment.User.id %}
+                    <a href='/comment/{{ comment.id }}/delete'>Delete comment</a>
+                    {% endif %}
+                    <li>{{comment.comment}}</li>
+                </ul>
+            </div>
+            {% endfor %}
+            <div class="form-group">
+                <form action="/addcomment" , method="post">
+                    {% csrf_token %}
+                    <label class="form-label" for="textAreaExample5">Post a comment </label>
+                    <textarea name="new_comment" class="form-control" id="textAreaExample5" rows="3"></textarea>
+                    <input type="hidden"  name="msg_id" , value={{msg.id}}>
+                    <input class="btn btn-primary btn-sm" type="submit" value="Post a comment">
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

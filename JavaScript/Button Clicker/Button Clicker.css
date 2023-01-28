@@ -1,0 +1,68 @@
+.navbar{
+    background-color:rgb(204,204, 204) ;
+    display: flex ;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 auto;
+    width: 600px;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+.input{
+    color: gray;
+    width: 200px;
+    height: 20px;
+    border: 2px solid black;
+}
+.navbar button{
+    background-color: rgb(43, 120,228);
+    color: white;
+    box-shadow: 0px 3px 3px 0px black;
+    height: 25px;
+    width: 60px;
+}
+.head1 h1 ,.head2 h1{
+    margin: 0;
+    margin-left: 20px;
+}
+.card1 , .card2{
+    border: 2px solid black;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    width: 400px;
+}
+.content1 , .content2{
+    display:flex;
+    justify-content: space-evenly;
+    margin: 0;
+}
+.footer1 ,.footer2{
+margin-left: 20px;
+}
+.footer1 button , .footer2 button{
+    background-color:rgb(225, 217, 102) ;
+    height: 30px;
+    width: 80px;
+    box-shadow: 0px 3px 3px 0px black;
+    color: black;
+}
+.container{
+    margin: 0 auto;
+    width: 600px;
+    display: flex;
+}
+.card3{
+    width: 200px;
+    border: 2px solid black;
+    height: 100px;
+    padding: 10px;
+    margin: 0;
+    padding: 10px;
+}
+.card3 button{
+    width: 120px;
+    height: 25px;
+    box-shadow: 0px 3px 3px 0px;
+    background-color: rgb(147, 196, 125);
+}

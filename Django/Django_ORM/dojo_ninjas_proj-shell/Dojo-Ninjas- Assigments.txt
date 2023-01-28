@@ -1,0 +1,16 @@
+ 
+1- Create the Dojo Class Model ( in app/model.py >> creat a class called Dojo and insert all the required instance as per given in the assigment ) 
+2- Create the Ninja Class Model (  in app/model.py >> creat a class called Ninja and insert all the required instance as per  given in the assigment ) 
+3- Create and run the migration files to create the tables in your database ( in the cmd command , run the follwing commands , (1- python manage.py makemigrations 2- python manage.py migrate ) this will insure that our tables are created back into data base 
+4- Create a .txt file where you'll save each of your queries from below 
+5- Run the Shell and import Your Models (( to Run the Shell we write ( python manage.py shell) , this will enter to the shell ,,, in order to import the Models we wriite ( from dojo_ninjas_app.models import Dojo , Ninja ) 
+6- Query: Create 3 new dojos ( run the quiry of create for 3 times for diffrents 3 dojos ,,,, Dojo.objects.create(name = "dojo_1" , city = "city_1" , state = "st_1") 
+7- Query: Delete the 3 dojos you just created ( run the quiry of delete for 3 times for the diffrents added 3 dojos ,,,,,, Dojo.objects.get(id=id).delete() ) 
+8- Query: Create 3 more dojos ( as same as point 7 ) 
+9 - Query: Create 3 ninjas that belong to the first dojo ( first we difine an instance  an set it equal to / belongs to the first dojo with it's id ,,,, Dojo_1 = Dojo.objects.get(id=id) , then we create 3 Ninjas that Belongs to that Dojo 
+10- Query: Create 3 ninjas that belong to the second dojo (same as 9 ) 
+11-Query: Create 3 ninjas that belong to the third dojo ( same as 9 )
+12- Query: Retrieve all the ninjas from the first dojo ( in order to retrive all the ninjas from first Dojo (( Dojo_1.ninjas.all() , we access them throgh the reverse lookup , and thin do a for loop to show up the namesof ninjas that belong to that dojo (e.g: for ninja in Dojo_1.ninjas.all(): print (ninja.first_name , ninja.last_name)
+13- Query: Retrieve all the ninjas from the last dojo ( same as 12 ) 
+14 Query: Retrieve the last ninja's dojo ( Dojo_last . name) 
+15- 

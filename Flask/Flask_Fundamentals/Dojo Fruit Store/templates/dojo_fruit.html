@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Fruit Store </title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.css') }}">
+</head>
+<body class="bg-secondary text-white">
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="{{url_for('static',filename='img/coding_dojo_logo_white.png') }}" width="90" height="30" class="d-inline-block align-top" alt="dojo_logo"> Fruit Store
+            </a>
+        </div>
+    </nav>
+    <div >
+        <h1>What would you like to buy?</h1>
+        <form action="/checkout" method="post">
+            <table class="table table-striped">
+                <caption>List of Fruit</caption>
+                <thead>
+                    <tr>
+                        <th >Fruit Name</th>
+                        <th >Quantity</th>  
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Strawberries</td>
+                        <td>
+                            <div class="form-group mb-3">
+                                <select class="custom-select" id="inputGroupSelect01" name="strawberries">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </td> 
+                    </tr>
+                    <tr>
+                        <td>Raspberries</td>
+                        <td>
+                            <div class="form-group mb-3">
+                                <select class="custom-select" id="inputGroupSelect01" name="raspberries">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>      
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Apples</td>
+                        <td>
+                            <div class="form-group mb-3">
+                                <select class="custom-select" id="inputGroupSelect01" name="apples">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Oranges</td>
+                        <td>
+                            <div class="form-group mb-3">
+                                <select class="custom-select" id="inputGroupSelect01" name="oranges">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>      
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Bananas</td>
+                        <td>
+                            <div class="form-group mb-3">
+                                <select class="custom-select" id="" name="bananas">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    </select>
+                            </div>      
+                            </td>
+                        </tr> 
+                </tbody>
+            </table>
+            <h4 class="h4"><u>Your Information</u></h4>
+            <div class="">
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Name (First Name & Last Name)" name="name">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Student ID (Ex: 1234)" name="student_id">
+                <button type="submit" class="btn btn-light" value="Submit">Buy me stuff</button>
+            </div>
+        </form>
+    </div>
+    <div id="">
+        <p class="text-center font-weight-bold">Welcome to Dojo Fruit Store!</p>
+        <p class="text-left font-weight-bold">
+        Your dojo decided to buy fruits for all the students!
+        Please use this app to tell us what you would like to have!
+        Once we get your order, we'll charger your student account automatically
+        </p>
+        <p class="text-left font-weight-bold">Dojo Fruit Store is proudly built using Flask</p>
+        
+</div>
+</body>
+</html>

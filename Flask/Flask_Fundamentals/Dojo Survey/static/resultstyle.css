@@ -1,0 +1,15 @@
+.container{
+        margin-top: 200px;
+        border: 1px solid black;
+        padding: 20px;
+        margin: 0 auto;
+}
+.container h1 {
+    text-decoration: underline;
+    font-weight: 400;
+}
+.footer{
+    display: flex;
+    justify-content: left;
+    margin-top: 20px;
+}

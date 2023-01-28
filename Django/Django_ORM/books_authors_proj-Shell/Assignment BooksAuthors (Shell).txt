@@ -1,0 +1,114 @@
+
+1- Query: Create 5 books with the following names: C Sharp, Java, Python, PHP, Ruby
+	
+	-(Book.objects.create(title = "C Sharp",desc = " C# is a general-purpose, high-level multi-paradigm programming language")
+	-(Book.objects.create(title = "Java",desc = " Java is a high-level, class-based, object-oriented programming language")
+	-(Book.objects.create(title = "Python" , desc = " Python is a high-level, general-purpose programming language")
+	-(Book.objects.create(title = "PHP" , desc = "PHP is a general-purpose scripting language geared toward web development ")
+	-(Book.objects.create(title = "Ruby" , desc = "A dynamic, open source programming language")
+---------------------------------------------------------------------------------------------------------
+
+2- Query: Create 5 different authors: Jane Austen, Emily Dickinson, Fyodor Dostoevsky, William Shakespeare, Lau Tzu
+	
+	-(Author.objects.create(first_name = " Jane",last_name = "Austen" )
+	-(Author.objects.create(first_name = " Emily",last_name = "Dickinson" )
+	-(Author.objects.create(first_name = " Fyodor",last_name = "Dostoevsky" )
+	-(Author.objects.create(first_name = " William",last_name = "Shakespeare" )
+	-(Author.objects.create(first_name = " Lau",last_name = "Tzu" )
+----------------------------------------------------------------------------------------------------------
+
+3- Add a new text field in the authors table called 'notes'.
+	- Make the field in the authors table in model.py file and then run the makemigration and migrate commands . 
+-----------------------------------------------------------------------------------------------------------
+
+4- Query: Change the name of the C Sharp book to C#
+	
+	-( 1-  obtain the instance that we want to change it's Name (Update)/// book_to_update = Book.objects.get(id=1) 
+	    2- book_to_update.title = " C#" , book_to_update.desc = " C# is a general-purpose, high-level multi-paradigm programming language"
+	     3- book_to_update.save())
+-------------------------------------------------------------------------------------------------------------
+
+5-Query: Change the first name of the 4th author to Bill 
+	 -( 1-  obtain the instance that we want to change it's Name (Update)/// author_to_update = Author.objects.get(id=4) 
+	     2- author_to_update.first_name = " Bill" , 
+	     3- book_to_update.save())
+---------------------------------------------------------------------------------------------------------------
+
+6-Query: Assign the first author to the first 2 books
+	1- obtain the books that we want to assign them to specific author ( this_book = Book.objects.get(id=1) , another_book = Book.objects.get(id=2))
+	2- obtain the author that we want him to be the author of that books (this_author = Author.objects.get(id=1)
+	3-  add the books to the author(this_author.books.add(this_book) , this_author.books.add(another_book))
+----------------------------------------------------------------------------------------------------------------
+
+7- Query: Assign the second author to the first 3 books
+	1- obtain the 3rd book that we want to assign to a specifc author /// third_book = Book.objects.get(id=3)
+	2- obtain that authore we want to assigne those books to him //// another_author = Author.objects.get(id=2).
+	3- add the books to that author {
+		a- another_author.books.add(this_book)
+		b- another_author.books.add(another_book)
+		c- another_author.books.add(third_book)
+-----------------------------------------------------------------------------------------------------------------
+
+8-  Query: Assign the third author to the first 4 books 
+	1- obtain the 4th book that we want to assign to a specifc author // forth_book =Book.objects.get(id=4)
+	2- obtain that authore we want to assigne those books to him //// third_author = Author.objects.get(id=3).
+	3- add the books to that author {
+		a- third_author.books.add(this_book)
+		b- third_author.books.add(another_book)
+		c- third_author.books.add(third_book)
+		d - third_ author.books.add(forth_book)
+--------------------------------------------------------------------------------------------------------------------
+
+9-  Query: Assign the fourth author to the first 5 books (or in other words, all the books)
+
+	1- obtain the 5th book that we want to assign to a specifc author // fifth_book =Book.objects.get(id=5)
+	2- obtain that authore we want to assigne those books to him //// forth_author = Author.objects.get(id=4).
+	3- add the books to that author {
+		a- forth_author.books.add(this_book)
+		b- forth_author.books.add(another_book)
+		c- forth_author.books.add(third_book)
+		d - forth_ author.books.add(forth_book)
+		e- forth_author.books.add(fifth_book)
+----------------------------------------------------------------------------------------------------------------------
+
+10- Query: Retrieve all the authors for the 3rd book
+	1- Run the command of ( third_book.Authores.all().valuses()
+Output : 
+---------
+<QuerySet [{'id': 2, 'first_name': ' Emily', 'last_name': 'Dickinson', 'notes': None, 'created_at': datetime.datetime(2022, 12, 18, 12, 4, 18, 42779, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 12, 18, 12, 4, 18, 42779, tzinfo=<UTC>)},
+ {'id': 3, 'first_name': ' Fyodor', 'last_name': 'Dostoevsky', 'notes': None, 'created_at': datetime.datetime(2022, 12, 18, 12, 4, 25, 236291, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 12, 18, 12, 4, 25, 236291, tzinfo=<UTC>)}, 
+{'id': 4, 'first_name': 'Bill', 'last_name': 'Shakespeare', 'notes': None, 'created_at': datetime.datetime(2022, 12, 18, 12, 4, 35, 376816, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 12, 18, 13, 11, 31, 922780, tzinfo=<UTC>)}]>
+-----------------------------------------------------------------------------------------------------------------------
+11- Query: Remove the first author of the 3rd book 
+
+	1- Run the command of ( this_author.books.remove(third_book)) 
+Output : 
+------------
+No change will be , since the first_author did not assign to the 3rd book 
+----------------------------------------------------------------------------------------------------------------------
+12-  Query: Add the 5th author as one of the authors of the 2nd book
+
+	1- first we have to get the fifth author instance // fifth_author = Author.objects.get(id=5)
+	2- Assign the fifth author to the 2nd book /// fifth_author.books.add(another_book)
+----------------------------------------------------------------------------------------------------------------------
+13-  Query: Find all the books that the 3rd author is part of 
+	third_author.books.all().values()
+Output : 
+------------
+<QuerySet [{'id': 1, 'title': 'C#', 'desc': 'C# is a general-purpose, high-level multi-paradigm programming language', 'created_at': datetime.datetime(2022, 12, 18, 11, 49, 5, 358789, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 12, 18, 13, 7, 20, 860476, tzinfo=<UTC>)}, 
+{'id': 2, 'title': 'Java ', 'desc': ' Java is a high-level, class-based, object-oriented programming language', 'created_at': datetime.datetime(2022, 12, 18, 11, 50, 20, 807947, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 12, 18, 11, 50, 20, 807947, tzinfo=<UTC>)}, 
+{'id': 3, 'title': 'Python', 'desc': ' Python is a high-level, general-purpose programming language', 'created_at': datetime.datetime(2022, 12, 18, 11, 51, 16, 505937, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 12, 18, 11, 51, 16, 505937, tzinfo=<UTC>)}, 
+{'id': 4, 'title': 'PHP', 'desc': 'PHP is a general-purpose scripting language geared toward web development ', 'created_at': datetime.datetime(2022, 12, 18, 11, 52, 17, 796979, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 12, 18, 11, 52, 17, 796979, tzinfo=<UTC>)}]>
+
+----------------------------------------------------------------------------------------------------------------
+14 - Query: Find all the authors that contributed to the 5th book
+
+	1- Run the Command of ( fifth_book.Authores.all().valuse() ) 
+
+Output : 
+------------- 
+<QuerySet [{'id': 4, 'first_name': 'Bill', 'last_name': 'Shakespeare', 'notes': None, 'created_at': datetime.datetime(2022, 12, 18, 12, 4, 35, 376816, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 12, 18, 13, 11, 31, 922780, tzinfo=<UTC>)}]>
+
+
+
+

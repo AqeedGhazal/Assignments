@@ -1,0 +1,18 @@
+.table-2{
+    font-family:Arial, Helvetica, sans-serif ;
+    border-collapse: collapse;
+}
+.table-2 td , th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+.table-2 tr:nth-child(even){ 
+    background-color: #dddddd;
+}
+
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}

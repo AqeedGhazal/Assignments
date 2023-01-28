@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fav Books</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/addbookstyle.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header_conternts">
+            <p class="inline_box">Welcome</p>
+            <a href="" class="inline_box">logout</a>
+        </div>
+        <div class="add_book">
+            <h1>Add a Favorit Book</h1>
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="title-row">
+                    <label for="title">Title:</label>
+                    <input type="text" name="title" id="title">
+                </div>
+                <div class="descreption-row">
+                    <label for="desc"></label>
+                    <textarea name="descreption" id="desc" cols="30" rows="10"></textarea>
+                </div>
+                <div class="add-row">
+                    <input type="submit" value="Add">
+                </div>
+            </form>
+        </div>
+        <div class="books">
+            <h1>All Books</h1>
+            <a href="">There and Back Again</a>
+            <p>(added by)</p>
+        </div>
+    </div>
+</body>
+</html>

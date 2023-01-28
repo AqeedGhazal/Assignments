@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and registration</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="Register">
+            <form action="/register" method="post">
+                {% csrf_token %}
+                <h1>Register</h1>
+                {% if messages %}
+                <ul class="messages">    
+                {% for message in messages %}    
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                {% endfor %}
+                </ul>
+                {% endif %}
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+                <label for="firstname"><b>First Name</b></label>
+                <input type="text" placeholder="First Name" name="registered_first_name" id="firstname"><br><br>
+                <label for="lastname"><b>Last Name</b></label>
+                <input type="text" placeholder="Last Name" name="registered_last_name" id="lastname"><br><br>
+                <label for="Email"><b>Email </b></label>
+                <input type="text" placeholder="Email address" name="registered_email" id="Email"><br><br>
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="password" name="registered_password" id="password"><br><br>
+                <label for="psw-confirm"><b>Confirm password</b></label>
+                <input type="password" placeholder="Confirm Password" name="registered_confirm_pw" id="psw-confirm">
+                <hr>
+                <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+                <button type="submit" class="registerbtn">Register</button>
+            </form>
+            <div class="container signin">
+                <p>Already have an account? <a href="#">Sign in</a>.</p>
+            </div>
+        </div>
+        <div class="login">
+            <form action="/login" , method="post">
+                {% csrf_token %}
+                <h1>login</h1>
+                <p>Please fill in this form to login your account.</p>
+                <hr>
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter your Email" name="login_email" id="email"><br><br>
+                <label for="psw"><b>password</b></label>
+                <input type="password" placeholder="Enter Your password" name="login_password" id="psw"><br><br>
+                <button type="submit" class="registerbtn">Login</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

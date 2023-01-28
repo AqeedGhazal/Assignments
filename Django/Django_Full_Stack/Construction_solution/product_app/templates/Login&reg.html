@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <title>Construction Solutions</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/login&reg.css' %}">
+</head>
+<body style="background-color: rgb(238, 238, 238);">
+    <div class="msg">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+    <br>
+    <br>
+    <div class="cont">
+        <form action="/login" method="post">
+            {% csrf_token %}
+            <div class="form sign-in">
+                <h2>Welcome Engineer</h2>
+                <label>
+                    <span>Email</span>
+                    <input type="email" name="email">
+                </label>
+                <label>
+                    <span>Password</span>
+                    <input type="password" name="password">
+                </label>
+                <input type="submit" value="Login" class="submit">
+            </div>
+        </form>
+        <form action="/loginuser" method="post">
+                {% csrf_token %}
+                <div class="form sign-in">
+                    <h2>Welcome Customer</h2>
+                    <label>
+                        <span>Email</span>
+                        <input type="email" name="emailuser">
+                    </label>
+                    <label>
+                        <span>Password</span>
+                        <input type="password" name="passworduser">
+                    </label>
+                    <input type="submit" value="Login" class="submit">
+                </div>
+        </form>
+        <div class="sub-cont">
+            <div class="img">
+                <div class="img__text m--up">
+                    <h3>Don't have an account? Please Sign up!<h3>
+                </div>
+                <div class="img__text m--in">
+                    <h3>If you already has an account, just sign in.<h3>
+                </div>
+                <div class="img__btn">
+                    <span class="m--up">Sign Up</span>
+                    <span class="m--in">Sign In</span>
+                </div>
+            </div>
+            <div class="form sign-up" style="display:flex ;">
+                    <div class="hid">
+                        <h5>Register As Customer</h5>
+                        <form action="/regestireuser" method="post">
+                            {% csrf_token %}
+                        <label>
+                            <span>First Name:</span>
+                            <input type="text" name="firstname">
+                        </label>
+                        <label>
+                            <span>Last Name:</span>
+                            <input type="text" name="lastname">
+                        </label>
+                        <label>
+                            <span>Email:</span>
+                            <input type="email" name="email">
+                        </label>
+                        <label>
+                            <span>Password:</span>
+                            <input type="password" name="regesterd-userpassword">
+                        </label>
+                        <label>
+                            <span>Confirm Paswword:</span>
+                            <input type="password" name="regesterd-C-userpassword">
+                        </label>
+                        <input type="submit" value="SignUp" class="submit1">
+                </form>
+            </div>
+            <div class="hid">
+                    <h5>Register As Engineer</h5>
+                    <form action="/regestireengineer" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                    <label>
+                        <span>First Name:</span>
+                        <input type="text" name="firstname">
+                    </label>
+                    <label>
+                        <span>Last Name:</span>
+                        <input type="text" name="lastname">
+                    </label>
+                    <label>
+                        <span>Email</span>
+                        <input type="email" name="email">
+                    </label>
+                    <label>
+                        <span>Password</span>
+                        <input type="password" name="regesterd-engpassword">
+                    </label>
+                    <label>
+                        <span>Confirm Paswword:</span>
+                        <input type="password" name="regesterd-c-engpassword">
+                    </label>
+                    <label>
+                        <span>Profile Picture:</span>
+                        <input type="file" name="image" accept="image/*">
+                    </label>
+                    <label>
+                        <span>Phone Number</span>
+                        <input type="email" name="PhoneNumber">
+                    </label>
+                    <input type="submit" value="SignUp" class="submit1">
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        document.querySelector('.img__btn').addEventListener('click', function () {
+            document.querySelector('.cont').classList.toggle('s--signup');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add product</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/addproduct.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="/allproducts_eng">Show All Products</a>
+            <a href="/logout">Logout</a>
+        </div>
+        <div class="add_product">
+            <div class="messages">
+                {% if messages %}
+                <ul class="messages">    
+                {% for message in messages %}    
+                    <li class="red" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div>
+                <h1>Welcome Eng {{engineer.First_Name}}</h1>
+            </div>
+            <h1>Add a New Product</h1>
+            <form action="/addproduct" method="post">
+                {% csrf_token %}
+                <div class="title">
+                    <label for="Title"> product Title :</label>
+                    <input type="text" name="title" id="Title">
+                </div>
+                <div class="company">
+                    <h2>Company:</h2>
+                    <div class="exist-company">
+                        <label for="exist-company">Choose Company  From the list</label>
+                        <select name="exist-company" id="exist-company">
+                            {% for author in authors%}
+                            <option value="{{company.Name}}">{{company.Name}}</option>
+                            {% endfor %}
+                        </select>
+                </div>
+                <div class="new-company">
+                    <label for="new-company"> Or Add a new Company</label>
+                    <input type="text" name="new-company" id="new-company">
+                </div>
+                <div class="descreption">
+                    <label for="desc">Descreption</label>
+                    <textarea name="desc" id="desc" cols="30" rows="10"></textarea>
+                </div>
+                <div class="used-for">
+                    <label for="usedfor">Used for</label>
+                    <textarea name="usedfor" id="usedfor" cols="30" rows="10"></textarea>
+                </div>
+                <div class="advantages">
+                    <label for="advantegs ">Advantages</label>
+                    <textarea name="advantages" id="advantages" cols="30" rows="10"></textarea>
+                </div>
+                <div class="rating">
+                    <label for="rating">Rating</label>
+                    <select name="rating" id="rating">
+                        <option value=1>1</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5</option>
+                    </select>
+                </div>
+                <div class="submit">
+                    <input type="submit" value="Add Product ">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">    
+</head>
+<body>
+    <div class="container">
+        <form action="results" method="post">
+            {% csrf_token %}
+            <p> Your Name: 
+                <input type="text" name="name">
+            </p>
+            <p>
+                <label for="select">Dojo Location: 
+                    <select name="location" id="select">
+                        <option value="">--Please choose location--</option>
+                        <option value="San Jose"> San Jose </option>
+                        <option value="Nablus"> Nablus </option>
+                    </select>
+                </label>
+            </p>
+            <p>
+                <label for="select"> Favorit Language:</label>
+                    <select name="language" id="select">
+                        <option value="">--Please choose language--</option>
+                        <option value="python"> python </option>
+                        <option value="C+"> C+ </option>
+                    </select>
+                </label>
+            </p>
+            <p>Comments (optional):</p>
+            <p><textarea name="comments" id="Text" cols="50" rows="6"></textarea></p>
+            <button>Submitt</button>      
+        </form>
+    </div>
+</body>
+</html>

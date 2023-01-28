@@ -1,0 +1,56 @@
+
+
+
+
+
+
+.farm , .cave , .house , .casino{
+
+    width: 200px;
+    height: 160px;
+    display: inline-block;
+    border: solid 2px black;
+    text-align: center;
+}
+.forms {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+
+}
+.header {
+    border-bottom: 1px solid black;
+    margin-bottom: 40px;
+
+}
+
+.gold {
+    border: 1px solid black;
+}
+
+#activity-box{
+    overflow-y:scroll;
+    margin: 0px;
+    width: 825px;
+    height: 150px;
+    border: solid 2px black;
+    
+}
+
+
+#activity-box p{
+    margin: 0 20px;
+}
+#activity{
+    border-top: 1px solid black;
+
+    margin: 0 auto;
+    margin-top: 20px;
+
+}
+
+button{
+    border: 1px solid black;
+    box-shadow: 3px 3px;
+    background-color: white;
+}

@@ -1,0 +1,40 @@
+#rightbar{
+    color: black;
+    display: inline-block;
+    width: 230px;
+    height: 500px;
+    background-color: rgb(178, 163, 210);
+    border: solid 2px black;
+    margin-left: 200px;
+    margin-top: 160px;
+    font-size: 17px;
+    padding: 10px;
+}
+
+#filler{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 50px;
+    margin-left: 30px;
+    
+}
+
+.wwyltb{
+    margin-bottom: 20px;
+}
+
+.fruit_select{
+    margin-left: 15px;
+}
+
+.subbut{
+    margin-top: 15px;
+    margin-left: 400px;
+}
+
+.flask{
+    width:100px;
+    height:85px;
+    margin-left: 50px;
+    margin-top: 10px;
+}

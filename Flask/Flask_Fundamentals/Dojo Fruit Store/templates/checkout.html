@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>summary</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.css') }}">
+</head>
+<body class="">
+    <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">
+            <img src="{{url_for('static',filename='img/coding_dojo_logo_white.png') }}" width="90" height="30" class="d-inline-block align-top" alt="">
+                Fruit Store
+            </a>
+    </nav>
+    <div class="">
+        <h1 class="">Thank you for your order! </h1>
+        <p>We ordered {{session['count']}} items for you and charged you 
+            {{session['name']}} on {{session['timestamp']}}
+        </p>
+    </div>
+    <div class="">
+        <h4 class=""><u>You've ordered:</u></h4>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Fruit Name</th>
+                    <th scope="col">Quantity</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Strawberries</td>
+                        <td>{{session['strawberries']}}</td>
+                    </tr>
+                    <tr>
+                        <td>Raspberries</td>
+                        <td>{{session['raspberries']}}</td>
+                    </tr>
+                    <tr>
+                        <td>Apples</td>
+                        <td>{{session['apples']}}</td>
+                    </tr>
+                    <tr>
+                        <td>Oranges</td>
+                        <td>{{session['oranges']}}</td>
+                    </tr>
+                    <tr>
+                        <td>Bananas</td>
+                        <td>{{session['bananas']}}</td>
+                    </tr>
+                </tbody>
+        </table>
+        <h4><u>Your Information</u></h4>
+        <p>Name: {{session['name']}}</p>
+        <p>Student ID: {{session ['student_id']}}</p>
+    </div>
+</body>
+</html>

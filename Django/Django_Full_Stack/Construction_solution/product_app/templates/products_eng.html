@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/productstyle.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <p>Welcome Eng {{engineer.First_Name}} {{engineer.Last_Name}}</p>
+            <a href="/logout">Logout</a>
+            <a href="/books/addbook"></a>
+        </div>
+        <div class="review inline_box">
+            <h4>Products:</h4>
+            {% for product in products %}
+                <a href="/showproduct/{{product.id}}"><h2>{{product.Title}}</h2></a>
+                <p>Added on {{ product.created_at}}</p>
+                <p>Added By Eng {{engineer.First_Name}} </p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

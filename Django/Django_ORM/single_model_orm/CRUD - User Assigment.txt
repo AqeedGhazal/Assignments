@@ -1,0 +1,15 @@
+--Run the shell >> python manage.py shell 
+ import the model , ( in our case it's the user Model )
+>>>> from users_app.models import user 
+-- create a new 3 users : 
+Query 1 >>>> user.objects.create(first_name = " Aqeed" , last_name = " Ghazal" , email_address = " aqeedghazal@gmail.com" , age = 30 ) 
+Query 1>>>> user.objects.create ( user 2 ) 
+Query 1>>>> user.objects.create ( user 3 ) 
+Query 2>>>> user.objects.all() ( this command will retrive all the users 
+Query 3>>>> user.objects.last() ( this will retrive the last user) 
+Query 4>>>> user.objects.first() ( this will retrive the first user ) 
+Query 5>>>> user.objects.get(id=3).last_name = " pancakes" >>>> then you have to follwo this command with  user.objects.get(id=3).save() . 
+Query 6>>>> user.objects.get(id=2).delete()
+Query 7>>>> user.objects.all().order_by ("first_name")
+Query 8>>>> user.objects.all().order_by("-first_name")
+

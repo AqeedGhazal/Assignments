@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Solutions</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/MainPage.css' %}">
+</head>
+<html>  
+<body>
+    <main>
+        <header>
+            <h2 class="t">Construction Solutions</h2>
+            <div style="display: flex; justify-content: space-between; margin-left: 500px;">
+                <a href="/home" style="margin-left: 25px;">Home</a>
+                <a href="/reg" style="margin-left: 25px;">Registration</a>
+                <a href="/reg" style="margin-left: 25px;">Login</a>
+                <a href="/contactUs" style="margin-left: 25px;">Contact Us</a>
+            </div>
+        </header>
+        <p>website that compining an <br>
+            extensive range of products <br>
+            for the construction industry</p>
+        <form action="/home" style="height: 100px;">
+            <button class="btn">Learn More</button>
+        </form>
+    </main>
+</body>
+</html>

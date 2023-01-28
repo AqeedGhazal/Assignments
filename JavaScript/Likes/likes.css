@@ -1,0 +1,30 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    ;
+}
+.card{
+    border:  2px solid black;
+    margin: 0 auto;
+    justify-content: space-around;
+    width: 400px;
+}
+.head{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.he{
+    margin-right:50px ;
+}
+.content{
+    margin-left: 20px;
+}
+button{
+    background-color:rgb(225, 217, 102) ;
+    height: 30px;
+    width: 60px;
+    box-shadow: 3px 3px 3px 3px black;
+    color: black;
+}
